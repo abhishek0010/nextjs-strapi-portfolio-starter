@@ -10,23 +10,31 @@ export default function FeaturedProjects({ data, projects }) {
   return (
     <section className="bg-neutral-50 py-24 relative overflow-hidden">
       <ShapeDivider className="fill-white" />
-      <div className="relative mx-auto max-w-5xl px-4">
+      <div className="relative mx-auto max-w-7xl px-4">
         <SectionHeader headline={headline} supportiveText={supportiveText} />
-        {projects.status === 'rejected' ? (
-          <div className="text-red-600 text-center">Error: We encountered an issue while loading the featured projects.</div>
+        {projects.status === "rejected" ? (
+          <div className="text-red-600 text-center">
+            Error: We encountered an issue while loading the featured projects.
+          </div>
+        ) : projects.value.length > 0 ? (
+          <ProjectCarousel
+            projects={projects.value}
+            baseUrl={process.env.NEXT_PUBLIC_STRAPI}
+          />
         ) : (
-          projects.value.length > 0 ? (
-            <ProjectCarousel projects={projects.value} baseUrl={process.env.NEXT_PUBLIC_STRAPI} />
-          ) : (
-            <p className="text-center text-gray-500">
-              No featured projects available at the moment. Please check back later!
-            </p>
-          )
+          <p className="text-center text-gray-500">
+            No featured projects available at the moment. Please check back
+            later!
+          </p>
         )}
         <div className="mt-6 md:mt-12 flex items-center justify-center gap-x-4">
-          <BtnSecondary label="View all projects" url="/projects/" showIcon={true} />
+          <BtnSecondary
+            label="View all projects"
+            url="/projects/"
+            showIcon={true}
+          />
         </div>
       </div>
     </section>
-  )
+  );
 }

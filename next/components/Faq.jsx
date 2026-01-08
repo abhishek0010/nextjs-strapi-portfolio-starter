@@ -7,10 +7,10 @@ export default function Faq({ data }) {
 
   return (
     <section className="bg-white py-24 relative">
-      <div className="mx-auto max-w-5xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <SectionHeader headline={headline} supportiveText={supportiveText} />
         <FaqList faqList={faqList} />
       </div>
     </section>
-  )
+  );
 }

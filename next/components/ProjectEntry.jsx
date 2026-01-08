@@ -1,8 +1,15 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRightIcon } from '@heroicons/react/16/solid';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRightIcon } from "@heroicons/react/16/solid";
 
-export default function ProjectEntry({ featuredImageUrl, featuredImageAlternativeText, title, excerpt, slug, priority = false }) {
+export default function ProjectEntry({
+  featuredImageUrl,
+  featuredImageAlternativeText,
+  title,
+  excerpt,
+  slug,
+  priority = false,
+}) {
   return (
     <article className="bg-white hover:bg-neutral-100 transition rounded-2xl border border-neutral-200 relative h-full">
       <Image
@@ -11,13 +18,15 @@ export default function ProjectEntry({ featuredImageUrl, featuredImageAlternativ
         priority={priority}
         {...(priority ? { priority: true } : { loading: "lazy" })}
         src={featuredImageUrl}
-        alt={featuredImageAlternativeText ?? ''}
+        alt={featuredImageAlternativeText ?? ""}
         width={1468}
         height={769}
-        sizes="(max-width: 639px) calc(100vw - 34px), (max-width: 1024px) calc(50vw - 30px), 482px"
+        sizes="(max-width: 639px) calc(100vw - 34px), (max-width: 1278px) calc(50vw - 30px), 610px"
       />
       <div className="p-6">
-        <h3 className="text-gray-900 font-normal text-xl sm:text-2xl tracking-tight">{title}</h3>
+        <h3 className="text-gray-900 font-normal text-xl sm:text-2xl tracking-tight">
+          {title}
+        </h3>
         <p className="text-gray-700 mt-2 mb-4">{excerpt}</p>
         <Link
           href={`/projects/${slug}/`}

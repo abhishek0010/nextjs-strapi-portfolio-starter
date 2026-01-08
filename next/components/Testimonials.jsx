@@ -9,10 +9,10 @@ export default function Testimonials({ data }) {
   return (
     <section className="bg-white py-24 relative">
       <ShapeDivider className="fill-neutral-50" />
-      <div className="relative mx-auto max-w-5xl px-4">
+      <div className="relative mx-auto max-w-7xl px-4">
         <SectionHeader headline={headline} supportiveText={supportiveText} />
         <TestimonialList testimonialList={testimonialList} />
       </div>
-    </section >
+    </section>
   );
 }

@@ -1,18 +1,21 @@
-import BtnPrimary from './BtnPrimary';
+import BtnPrimary from "./BtnPrimary";
 // import AnimatedGradient from './AnimatedGradient';
-import ShapeDivider from './ShapeDivider';
-import BtnSecondary from './BtnSecondary';
+import ShapeDivider from "./ShapeDivider";
+import BtnSecondary from "./BtnSecondary";
 
 export default function Hero({ data }) {
   // Destructure the necessary properties
-  const { greeting, headline, supportiveText, primaryButton, secondaryButton } = data;
+  const { greeting, headline, supportiveText, primaryButton, secondaryButton } =
+    data;
 
   return (
     <section className="bg-primary-50 relative">
       <ShapeDivider className="fill-white" />
-      <div className="relative z-50 mx-auto max-w-5xl px-4 pt-[168px] pb-24 sm:pt-48 sm:pb-[120px] text-center">
+      <div className="relative z-50 mx-auto max-w-7xl px-4 pt-[168px] pb-24 sm:pt-48 sm:pb-[120px] text-center">
         {greeting && (
-          <p className="font-normal text-xl sm:text-2xl lg:text-3xl text-primary-700 -rotate-3 mb-4">{greeting}</p>
+          <p className="font-normal text-xl sm:text-2xl lg:text-3xl text-primary-700 -rotate-3 mb-4">
+            {greeting}
+          </p>
         )}
         <h1 className="text-gray-900 font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight">
           {headline}
@@ -22,7 +25,9 @@ export default function Hero({ data }) {
           {primaryButton && (
             <BtnPrimary
               target={primaryButton.openLinkInNewTab ? "_blank" : undefined}
-              rel={primaryButton.sameHostLink ? undefined : "noopener noreferrer"}
+              rel={
+                primaryButton.sameHostLink ? undefined : "noopener noreferrer"
+              }
               className="w-full sm:w-auto"
               label={primaryButton.label}
               url={primaryButton.url}
@@ -33,7 +38,9 @@ export default function Hero({ data }) {
           {secondaryButton && (
             <BtnSecondary
               target={secondaryButton.openLinkInNewTab ? "_blank" : undefined}
-              rel={secondaryButton.sameHostLink ? undefined : "noopener noreferrer"}
+              rel={
+                secondaryButton.sameHostLink ? undefined : "noopener noreferrer"
+              }
               className="w-full sm:w-auto"
               label={secondaryButton.label}
               url={secondaryButton.url}

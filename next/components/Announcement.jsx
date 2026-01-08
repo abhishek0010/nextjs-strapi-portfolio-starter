@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import DOMPurify from "isomorphic-dompurify";
 import { marked } from "marked";
-import { XMarkIcon } from '@heroicons/react/24/solid';
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 
 export default function Announcement({ data }) {
@@ -10,7 +10,10 @@ export default function Announcement({ data }) {
 
   useEffect(() => {
     // Check if the announcement hasn't been dismissed
-    if (typeof window !== "undefined" && !localStorage.getItem("announcementDismissed")) {
+    if (
+      typeof window !== "undefined" &&
+      !localStorage.getItem("announcementDismissed")
+    ) {
       setIsVisible(true);
     }
   }, []);
@@ -24,11 +27,14 @@ export default function Announcement({ data }) {
     // Return fallback UI in case of validation or fetch errors
     return (
       <div className="bg-neutral-950 relative z-[10000]">
-        <div className="mx-auto max-w-5xl p-4">
-          <div className="text-red-600 text-center">Error: We encountered an issue while loading the &quot;Announcement&quot; component.</div>
+        <div className="mx-auto max-w-7xl p-4">
+          <div className="text-red-600 text-center">
+            Error: We encountered an issue while loading the
+            &quot;Announcement&quot; component.
+          </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (!isVisible) return null;
@@ -44,7 +50,9 @@ export default function Announcement({ data }) {
       <div className="flex items-center justify-center gap-3 mx-auto max-w-screen-xl text-white pl-[56px] pr-4 py-2">
         <div
           className="text-center prose prose-sm leading-snug prose-invert prose-modifier !max-w-none"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(marked.parse(content)) }}
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(marked.parse(content)),
+          }}
         />
         <button
           aria-label="Dismiss announcement"
