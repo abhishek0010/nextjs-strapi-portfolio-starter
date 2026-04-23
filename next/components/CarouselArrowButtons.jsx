@@ -78,7 +78,7 @@ export const NextButton = (props) => {
       type="button"
       {...restProps}
     >
-      <ArrowRightIcon ariaidden="true" className="size-6" />
+      <ArrowRightIcon aria-hidden="true" className="size-6" />
       {children}
     </button >
   );
